@@ -36,7 +36,25 @@ class MyHTMLParser(HTMLParser):
 
 
 def sanitize_email(email_body):
-    if "DOCTYPE html" in email_body:
+    if "AMD3up" in email_body:
+        return_string = "AMD TLVX Up on 3 minute with volume greater than avg volume of last 12 bars"
+
+    elif "NVDA3up" in email_body:
+        return_string = "NVDA TLVX Up on 3 minute with volume greater than avg volume of last 12 bars"
+
+    elif "AAPL3up" in email_body:
+        return_string = "AAPL TLVX Up on 3 minute with volume greater than avg volume of last 12 bars"
+
+    elif "TSLA3up" in email_body:
+        return_string = "TSLA TLVX Up on 3 minute with volume greater than avg volume of last 12 bars"
+
+    elif "QQQ3up" in email_body:
+        return_string = "QQQ TLVX Up on 3 minute with volume greater than avg volume of last 12 bars"
+
+    elif "SPY3up" in email_body:
+        return_string = "SPY TLVX Up on 3 minute with volume greater than avg volume of last 12 bars"
+        
+    elif "DOCTYPE html" in email_body:
         parser = MyHTMLParser()
         parser.feed(email_body)
         email_message_string = ""
